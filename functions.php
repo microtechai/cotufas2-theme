@@ -2,6 +2,9 @@
 function cotufas2_theme_setup() {
     add_theme_support('title-tag');
     add_theme_support('custom-logo');
+
+    // Register primary navigation menu location
+    register_nav_menu('primary', __('Menú Principal', 'cotufas2-theme'));
 }
 add_action('after_setup_theme', 'cotufas2_theme_setup');
 
