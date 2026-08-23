@@ -5,22 +5,6 @@ function cotufas2_theme_setup() {
 }
 add_action('after_setup_theme', 'cotufas2_theme_setup');
 
-function cotufas2_enqueue_styles() {
-    wp_enqueue_style(
-        'twentytwentyfive-style',
-        get_template_directory_uri() . '/style.css',
-        array(),
-        wp_get_theme('twentytwentyfive')->get('Version')
-    );
-    wp_enqueue_style(
-        'cotufas2-style',
-        get_stylesheet_uri(),
-        array('twentytwentyfive-style'),
-        wp_get_theme()->get('Version')
-    );
-}
-add_action('wp_enqueue_scripts', 'cotufas2_enqueue_styles');
-
 function cotufas2_debug_marker() {
     echo "\n<!-- COTUFAS2-THEME-ACTIVE-1.0 -->\n";
 }

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
+  <rect width="200" height="80" fill="#1A1A1A"/>
+  <text x="100" y="45" text-anchor="middle" font-family="Georgia, serif" font-size="28" font-weight="bold" fill="#D4451A">COTUFAS</text>
+  <text x="100" y="65" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#F5A623">PIZZA ARTESANAL</text>
+</svg>
