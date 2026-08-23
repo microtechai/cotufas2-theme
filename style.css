@@ -2,10 +2,65 @@
 Theme Name: Cotufas2
 Theme URI: http://178.104.253.211/cotufas2
 Author: Hermes Agent
-Author URI: https://hermes-agent.nousresearch.com
-Description: Custom theme for Cotufas2 pizzeria site. Black background, pizzeria aesthetic.
 Template: twentytwentyfive
 Version: 1.0.0
-License: GNU General Public License v2 or later
+License: GPL v2 or later
 Text Domain: cotufas2
 */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* Pizzeria dark theme overrides */
+body {
+    background-color: #1A1A1A !important;
+    color: #F5F0E8 !important;
+}
+
+.wp-block-button.is-outline .wp-block-button__link {
+    background: transparent;
+    border: 2px solid #D4451A;
+    color: #D4451A;
+}
+
+.wp-block-button.is-outline .wp-block-button__link:hover {
+    background: #D4451A;
+    color: white;
+}
+
+.site-header {
+    border-bottom: 1px solid #2A2A2A;
+}
+
+.wp-block-cover__background.has-base-background-color {
+    background-color: #1A1A1A !important;
+}
+
+a {
+    color: #F5A623;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #D4451A;
+}
+
+/* Navigation styling */
+.wp-block-navigation a {
+    color: #F5F0E8 !important;
+}
+
+.wp-block-navigation a:hover {
+    color: #D4451A !important;
+}
+
+/* Button hover */
+.wp-block-button__link {
+    transition: all 0.3s ease;
+}
+
+.wp-block-button__link:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
