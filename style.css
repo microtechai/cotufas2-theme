@@ -64,6 +64,17 @@ a:hover {
     transform: translateY(-2px);
 }
 
+/* Mobile menu overlay dark theme fix */
+.wp-block-navigation__responsive-container.is-menu-open {
+    background-color: #1A1A1A !important;
+}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content {
+    color: #F5F0E8 !important;
+}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-close {
+    color: #F5F0E8 !important;
+}
+
 /* Carta */
 .carta-page {
     overflow: hidden;
