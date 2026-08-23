@@ -64,3 +64,128 @@ a:hover {
     transform: translateY(-2px);
 }
 
+/* Carta */
+.carta-page {
+    overflow: hidden;
+}
+
+.carta-hero .wp-block-cover__inner-container {
+    padding-inline: 24px;
+}
+
+.carta-hero h1,
+.carta-hero p {
+    margin-inline: auto;
+}
+
+.carta-hero p {
+    color: #F5A623;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.carta-section {
+    box-sizing: border-box;
+}
+
+.carta-section > h2,
+.carta-section > .wp-block-group > h2 {
+    margin-bottom: 0;
+}
+
+.carta-section h2 span {
+    color: #F5A623;
+    white-space: nowrap;
+}
+
+.category-divider {
+    border: 0;
+    height: 3px;
+    margin: 22px auto 42px;
+    max-width: 72px;
+    opacity: 1;
+}
+
+.category-divider--left {
+    margin-left: 0;
+}
+
+.menu-item-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 64px;
+    list-style: none;
+    margin: 0 auto;
+    max-width: 920px;
+    padding: 0;
+}
+
+.menu-item-list--compact {
+    max-width: 760px;
+}
+
+.menu-item-list li {
+    align-items: baseline;
+    border-bottom: 1px dotted rgba(245, 240, 232, 0.28);
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    padding: 16px 0 16px 28px;
+    position: relative;
+}
+
+.menu-item-list li::before {
+    color: #D4451A;
+    content: "\2713";
+    font-weight: 700;
+    left: 0;
+    position: absolute;
+}
+
+.menu-price {
+    color: #F5A623;
+    font-weight: 700;
+    margin-left: auto;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.carta-feature-image img {
+    aspect-ratio: 4 / 3;
+    border-radius: 18px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.carta-instagram h2,
+.carta-instagram p {
+    margin-inline: auto;
+    max-width: 720px;
+}
+
+.carta-instagram p {
+    color: #F5F0E8;
+}
+
+@media (max-width: 700px) {
+    .carta-hero {
+        min-height: 340px !important;
+    }
+
+    .carta-hero h1 {
+        font-size: 2.6rem !important;
+    }
+
+    .menu-item-list {
+        grid-template-columns: 1fr;
+    }
+
+    .category-divider--left {
+        margin-left: auto;
+    }
+
+    .carta-bread h2,
+    .carta-bread p {
+        text-align: center;
+    }
+}
