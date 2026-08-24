@@ -190,4 +190,77 @@ function cotufas2_header_scripts() {
 }
 add_action('wp_footer', 'cotufas2_header_scripts', 100);
 
+/* ======================================================
+   MOBILE MENU — Staggered animation trigger
+   ====================================================== */
+function cotufas2_mobile_menu_animation() {
+    ?>
+    <script>
+    (function() {
+        'use strict';
+        var btns = document.querySelectorAll('.wp-block-navigation__responsive-container-open');
+        btns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var container = document.querySelector('.wp-block-navigation__responsive-container');
+                if (!container) return;
+                var isOpen = container.classList.contains('is-menu-open');
+                var items = container.querySelectorAll('.wp-block-navigation-item');
+                items.forEach(function(item) {
+                    item.classList.remove('animating');
+                    item.style.animationDelay = '';
+                    item.style.opacity = '';
+                    item.style.transform = '';
+                });
+                if (isOpen) {
+                    container.classList.remove('animating');
+                    /* Force reflow */
+                    void container.offsetHeight;
+                    setTimeout(function() {
+                        items.forEach(function(item, i) {
+                            item.style.setProperty('--stagger', i);
+                            item.classList.add('animating');
+                        });
+                    }, 10);
+                }
+            });
+        });
+        var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(m) {
+                if (m.type === 'attributes') {
+                    var container = m.target;
+                    var isOpen = container.classList.contains('is-menu-open');
+                    var items = container.querySelectorAll('.wp-block-navigation-item');
+                    if (isOpen) {
+                        items.forEach(function(item) {
+                            item.classList.remove('animating');
+                            item.style.animationDelay = '';
+                            item.style.opacity = '';
+                            item.style.transform = '';
+                        });
+                        void container.offsetHeight;
+                        setTimeout(function() {
+                            items.forEach(function(item, i) {
+                                item.style.setProperty('--stagger', i);
+                                item.classList.add('animating');
+                            });
+                        }, 10);
+                    } else {
+                        items.forEach(function(item) {
+                            item.classList.remove('animating');
+                            item.style.animationDelay = '';
+                            item.style.opacity = '';
+                            item.style.transform = '';
+                        });
+                    }
+                }
+            });
+        });
+        var mc = document.querySelector('.wp-block-navigation__responsive-container');
+        if (mc) observer.observe(mc, { attributes: true, attributeFilter: ['class'] });
+    })();
+    </script>
+    <?php
+}
+add_action('wp_footer', 'cotufas2_mobile_menu_animation', 101);
+
 ?>
