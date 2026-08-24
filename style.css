@@ -3,7 +3,7 @@ Theme Name: Cotufas2
 Theme URI: http://178.104.253.211/cotufas2
 Author: Hermes Agent
 Template: twentytwentyfive
-Version: 1.0.0
+Version: 2.0.0
 License: GPL v2 or later
 Text Domain: cotufas2
 */
@@ -11,60 +11,134 @@ Text Domain: cotufas2
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
-/* Pizzeria dark theme overrides */
+/* ======================================================
+   BASE OVERRIDES
+   ====================================================== */
 body {
     background-color: #1A1A1A !important;
     color: #F5F0E8 !important;
 }
 
-.wp-block-button.is-outline .wp-block-button__link {
-    background: transparent;
-    border: 2px solid #D4451A;
-    color: #D4451A;
-}
-
-.wp-block-button.is-outline .wp-block-button__link:hover {
-    background: #D4451A;
-    color: white;
-}
-
-.site-header {
-    border-bottom: 1px solid #2A2A2A;
-}
-
-.wp-block-cover__background.has-base-background-color {
-    background-color: #1A1A1A !important;
-}
-
 a {
     color: #F5A623;
     text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 a:hover {
     color: #D4451A;
 }
 
-/* Navigation styling */
-.wp-block-navigation a {
-    color: #F5F0E8 !important;
+/* ======================================================
+   HEADER
+   ====================================================== */
+.site-header {
+    border-bottom: 1px solid #2A2A2A;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-.wp-block-navigation a:hover {
-    color: #D4451A !important;
+/* Logo styling */
+.wp-block-site-logo img {
+    border-radius: 8px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Button hover */
+.wp-block-site-logo:hover img {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* ======================================================
+   BUTTONS
+   ====================================================== */
 .wp-block-button__link {
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .wp-block-button__link:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(212, 69, 26, 0.3);
+    opacity: 1;
 }
 
-/* Carta */
+.wp-block-button.is-outline .wp-block-button__link {
+    background: transparent;
+    border: 2px solid #D4451A;
+    color: #D4451A;
+    box-shadow: none;
+}
+
+.wp-block-button.is-outline .wp-block-button__link:hover {
+    background: #D4451A;
+    color: white;
+    box-shadow: 0 6px 20px rgba(212, 69, 26, 0.4);
+}
+
+/* ======================================================
+   NAVIGATION
+   ====================================================== */
+.wp-block-navigation a {
+    color: #F5F0E8 !important;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.wp-block-navigation a:hover {
+    color: #F5A623 !important;
+    text-shadow: 0 0 20px rgba(245, 166, 35, 0.3);
+}
+
+/* ======================================================
+   HERO SECTION
+   ====================================================== */
+.hero-section {
+    position: relative;
+}
+
+.hero-section .wp-block-cover__background {
+    background: linear-gradient(
+        to bottom,
+        rgba(26, 26, 26, 0.3) 0%,
+        rgba(26, 26, 26, 0.6) 70%,
+        rgba(26, 26, 26, 0.95) 100%
+    ) !important;
+}
+
+.hero-section h1 {
+    text-shadow: 0 2px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ======================================================
+   MENU CARDS (Home page)
+   ====================================================== */
+.menu-card {
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+    background: #222222;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.menu-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(212, 69, 26, 0.2);
+}
+
+.menu-card img {
+    transition: transform 0.6s ease;
+}
+
+.menu-card:hover img {
+    transform: scale(1.05);
+}
+
+/* ======================================================
+   CARTA PAGE
+   ====================================================== */
 .carta-page {
     overflow: hidden;
 }
@@ -104,10 +178,7 @@ a:hover {
     margin: 22px auto 42px;
     max-width: 72px;
     opacity: 1;
-}
-
-.category-divider--left {
-    margin-left: 0;
+    border-radius: 2px;
 }
 
 .menu-item-list {
@@ -120,10 +191,6 @@ a:hover {
     padding: 0;
 }
 
-.menu-item-list--compact {
-    max-width: 760px;
-}
-
 .menu-item-list li {
     align-items: baseline;
     border-bottom: 1px dotted rgba(245, 240, 232, 0.28);
@@ -132,6 +199,13 @@ a:hover {
     justify-content: space-between;
     padding: 16px 0 16px 28px;
     position: relative;
+    transition: background 0.2s ease, padding-left 0.2s ease;
+    border-radius: 4px;
+}
+
+.menu-item-list li:hover {
+    background: rgba(245, 166, 35, 0.05);
+    padding-left: 32px;
 }
 
 .menu-item-list li::before {
@@ -140,6 +214,11 @@ a:hover {
     font-weight: 700;
     left: 0;
     position: absolute;
+    transition: transform 0.2s ease;
+}
+
+.menu-item-list li:hover::before {
+    transform: scale(1.2);
 }
 
 .menu-price {
@@ -148,6 +227,11 @@ a:hover {
     margin-left: auto;
     text-align: right;
     white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.menu-item-list li:hover .menu-price {
+    color: #FFB84D;
 }
 
 .carta-feature-image img {
@@ -167,6 +251,54 @@ a:hover {
     color: #F5F0E8;
 }
 
+/* ======================================================
+   FOOTER
+   ====================================================== */
+.site-footer a {
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.site-footer a:hover {
+    color: #F5A623 !important;
+    text-decoration: underline;
+}
+
+/* ======================================================
+   MOBILE MENU
+   ====================================================== */
+.wp-block-navigation__responsive-container.is-menu-open {
+    background-color: #1A1A1A !important;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content {
+    color: #F5F0E8 !important;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-close {
+    color: #F5F0E8 !important;
+}
+
+/* ======================================================
+   GENERAL UTILITY
+   ====================================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif !important;
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+    background: #D4451A;
+    color: #F5F0E8;
+}
+
+/* ======================================================
+   RESPONSIVE
+   ====================================================== */
 @media (max-width: 700px) {
     .carta-hero {
         min-height: 340px !important;
@@ -178,6 +310,7 @@ a:hover {
 
     .menu-item-list {
         grid-template-columns: 1fr;
+        gap: 0;
     }
 
     .category-divider--left {
@@ -188,15 +321,8 @@ a:hover {
     .carta-bread p {
         text-align: center;
     }
-}
-
-/* Mobile menu overlay dark theme fix */
-.wp-block-navigation__responsive-container.is-menu-open {
-    background-color: #1A1A1A !important;
-}
-.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content {
-    color: #F5F0E8 !important;
-}
-.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-close {
-    color: #F5F0E8 !important;
+    
+    .menu-item-list li:hover {
+        padding-left: 28px;
+    }
 }
