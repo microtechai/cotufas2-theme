@@ -1,7 +1,7 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 <!-- wp:group {"tagName":"main","className":"carta-page","layout":{"type":"default"}} -->
 <main class="wp-block-group carta-page">
-	
+
 	<!-- HERO CARTA -->
 	<!-- wp:cover {"url":"/cotufas2/wp-content/uploads/2026/08/mejor-pizza-tenerife.webp","id":10,"dimRatio":50,"overlayColor":"black","minHeight":500,"minHeightUnit":"px","align":"full","className":"carta-hero","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"}}}}} -->
 	<div class="wp-block-cover alignfull carta-hero" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;min-height:500px"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-50 has-background-dim"></span><img class="wp-block-cover__image-background wp-image-10" alt="Carta de pizzas artesanales de Cotufas 2" src="/cotufas2/wp-content/uploads/2026/08/mejor-pizza-tenerife.webp" data-object-fit="cover"/><div class="wp-block-cover__inner-container">
@@ -22,6 +22,29 @@
 		<!-- /wp:spacer -->
 	</div></div><!-- /wp:cover -->
 
+	<!-- LEYENDA ALERGENOS -->
+	<!-- wp:group {"align":"full","className":"allergen-legend-section","style":{"spacing":{"padding":{"top":"32px","right":"24px","bottom":"32px","left":"24px"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull allergen-legend-section">
+		<div class="allergen-legend-title">Leyenda de alérgenos</div>
+		<div class="allergen-legend-grid">
+			<div class="allergen-legend-item"><span class="allergen-circle allergen-gluten" aria-label="Gluten">C</span>Gluten</div>
+			<div class="allergen-legend-item"><span class="allergen-circle allergen-crustaceans" aria-label="Crustáceos">K</span>Crustáceos</div>
+			<div class="allergen-legend-item"><span class="allergen-circle allergen-milk" aria-label="Lácteos">L</span>Lácteos</div>
+			<div class="allergen-legend-item"><span class="allergen-circle allergen-egg" aria-label="Huevos">H</span>Huevos</div>
+			<div class="allergen-legend-item"><span class="allergen-circle allergen-soy" aria-label="Soja">S</span>Soja</div>
+			<div class="allergen-legend-item"><span class="allergen-circle allergen-peanuts" aria-label="Cacahuetes">A</span>Cacahuetes</div>
+			<div class="allergen-legend-item"><span class="allergen-circle allergen-tree" aria-label="Frutos cáscara">F</span>Frutos cáscara</div>
+			<div class="allergen-legend-item"><span class="allergen-circle allergen-celery" aria-label="Apio">P</span>Apio</div>
+			<div class="allergen-legend-item"><span class="allergen-circle allergen-mustard" aria-label="Mostaza">M</span>Mostaza</div>
+			<div class="allergen-legend-item"><span class="allergen-circle allergen-sesame" aria-label="Sésamo">Se</span>Sésamo</div>
+			<div class="allergen-legend-item"><span class="allergen-circle allergen-sulphur" aria-label="Sulfitos">U</span>Sulfitos</div>
+			<div class="allergen-legend-item"><span class="allergen-circle allergen-lupin" aria-label="Altramuz">T</span>Altramuz</div>
+			<div class="allergen-legend-item"><span class="allergen-circle allergen-molluscs" aria-label="Moluscos">O</span>Moluscos</div>
+		</div>
+		<p class="allergen-disclaimer">Consulta con nuestro personal sobre trazabilidad de alérgenos. Precios con IVA incluido.</p>
+	</div>
+	<!-- /wp:group -->
+
 	<!-- PIZZAS CLASICAS -->
 	<!-- wp:group {"align":"full","className":"carta-section","style":{"spacing":{"padding":{"top":"64px","right":"24px","bottom":"64px","left":"24px"}}},"layout":{"type":"constrained"}} -->
 	<section class="wp-block-group alignfull carta-section">
@@ -33,14 +56,14 @@
 		<!-- /wp:separator -->
 		
 		<ul class="menu-item-list">
-			<li><span>Margherita · Tomate, mozzarella, albahaca</span><span class="menu-price">8,50€</span></li>
-			<li><span>Napolitana · Tomate, mozzarella, anchoas, alcaparras</span><span class="menu-price">9,50€</span></li>
-			<li><span>Cuatro Quesos · Mozzarella, gorgonzola, parmesano, emmental</span><span class="menu-price">10,50€</span></li>
-			<li><span>Barbacoa · Salsa BBQ, pollo, bacon, cebolla caramelizada</span><span class="menu-price">11,00€</span></li>
-			<li><span>Pepperoni · Tomate, mozzarella, pepperoni</span><span class="menu-price">9,50€</span></li>
-			<li><span>Hawaiana · Tomate, mozzarella, jamón, piña</span><span class="menu-price">10,00€</span></li>
-			<li><span>Bolonesa · Tomate, mozzarella, carne picada, parmesano</span><span class="menu-price">10,50€</span></li>
-			<li><span>Vegetal · Tomate, mozzarella, pimiento, champiñón, cebolla, aceitunas</span><span class="menu-price">9,50€</span></li>
+			<li><span>Margherita · Tomate, mozzarella, albahaca</span><span class="allergen-info"><span class="allergen-badge allergen-milk" title="Lácteos">L</span></span><span class="menu-price">8,50€</span></li>
+			<li><span>Napolitana · Tomate, mozzarella, anchoas, alcaparras</span><span class="allergen-info"><span class="allergen-badge allergen-milk" title="Lácteos">L</span><span class="allergen-badge allergen-crustaceans" title="Crustáceos">K</span></span><span class="menu-price">9,50€</span></li>
+			<li><span>Cuatro Quesos · Mozzarella, gorgonzola, parmesano, emmental</span><span class="allergen-info"><span class="allergen-badge allergen-milk" title="Lácteos">L</span><span class="allergen-badge allergen-gluten" title="Gluten">C</span><span class="allergen-badge allergen-soy" title="Soja">S</span></span><span class="menu-price">10,50€</span></li>
+			<li><span>Barbacoa · Salsa BBQ, pollo, bacon, cebolla caramelizada</span><span class="allergen-info"><span class="allergen-badge allergen-crustaceans" title="Crustáceos">K</span><span class="allergen-badge allergen-sulphur" title="Sulfitos">U</span></span><span class="menu-price">11,00€</span></li>
+			<li><span>Pepperoni · Tomate, mozzarella, pepperoni</span><span class="allergen-info"><span class="allergen-badge allergen-milk" title="Lácteos">L</span><span class="allergen-badge allergen-gluten" title="Gluten">C</span></span><span class="menu-price">9,50€</span></li>
+			<li><span>Hawaiana · Tomate, mozzarella, jamón, piña</span><span class="allergen-info"><span class="allergen-badge allergen-crustaceans" title="Crustáceos">K</span><span class="allergen-badge allergen-gluten" title="Gluten">C</span></span><span class="menu-price">10,00€</span></li>
+			<li><span>Bolonesa · Tomate, mozzarella, carne picada, parmesano</span><span class="allergen-info"><span class="allergen-badge allergen-milk" title="Lácteos">L</span><span class="allergen-badge allergen-gluten" title="Gluten">C</span></span><span class="menu-price">10,50€</span></li>
+			<li><span>Vegetal · Tomate, mozzarella, pimiento, champiñón, cebolla, aceitunas</span><span class="allergen-info"><span class="allergen-badge allergen-sulphur" title="Sulfitos">U</span></span><span class="menu-price">9,50€</span></li>
 		</ul>
 	</section>
 	<!-- /wp:group -->
@@ -56,11 +79,11 @@
 		<!-- /wp:separator -->
 		
 		<ul class="menu-item-list">
-			<li><span>Tenerife · Tomate, mozzarella, pimentón, bacon crujiente, queso de cabra</span><span class="menu-price">12,50€</span></li>
-			<li><span>Santa Cruz · Tomate, mozzarella, pulpo a la gallega, pimentón</span><span class="menu-price">13,50€</span></li>
-			<li><span>Carne al pastor · Tomate, mozzarella, pollo, chorizo, piña, cilantro</span><span class="menu-price">12,00€</span></li>
-			<li><span>Trufa · Crema de trufa, mozzarella, hongos mixtos, parmesano</span><span class="menu-price">14,00€</span></li>
-			<li><span>Provolone · Tomate, provolone ahumado, cebolla caramelizada, orégano</span><span class="menu-price">12,50€</span></li>
+			<li><span>Tenerife · Tomate, mozzarella, pimentón, bacon crujiente, queso de cabra</span><span class="allergen-info"><span class="allergen-badge allergen-milk" title="Lácteos">L</span><span class="allergen-badge allergen-gluten" title="Gluten">C</span><span class="allergen-badge allergen-soy" title="Soja">S</span></span><span class="menu-price">12,50€</span></li>
+			<li><span>Santa Cruz · Tomate, mozzarella, pulpo a la gallega, pimentón</span><span class="allergen-info"><span class="allergen-badge allergen-milk" title="Lácteos">L</span><span class="allergen-badge allergen-gluten" title="Gluten">C</span><span class="allergen-badge allergen-crustaceans" title="Crustáceos">K</span></span><span class="menu-price">13,50€</span></li>
+			<li><span>Carne al pastor · Tomate, mozzarella, pollo, chorizo, piña, cilantro</span><span class="allergen-info"><span class="allergen-badge allergen-milk" title="Lácteos">L</span><span class="allergen-badge allergen-soy" title="Soja">S</span></span><span class="menu-price">12,00€</span></li>
+			<li><span>Trufa · Crema de trufa, mozzarella, hongos mixtos, parmesano</span><span class="allergen-info"><span class="allergen-badge allergen-milk" title="Lácteos">L</span><span class="allergen-badge allergen-gluten" title="Gluten">C</span></span><span class="menu-price">14,00€</span></li>
+			<li><span>Provolone · Tomate, provolone ahumado, cebolla caramelizada, orégano</span><span class="allergen-info"><span class="allergen-badge allergen-milk" title="Lácteos">L</span><span class="allergen-badge allergen-gluten" title="Gluten">C</span></span><span class="menu-price">12,50€</span></li>
 		</ul>
 	</section>
 	<!-- /wp:group -->
@@ -76,9 +99,9 @@
 		<!-- /wp:separator -->
 		
 		<ul class="menu-item-list">
-			<li><span>Pan con tomate · Pan rústico, tomate rallado, AOVE</span><span class="menu-price">4,50€</span></li>
-			<li><span>Pan con jamón · Pan rústico, tomate, jamón ibérico</span><span class="menu-price">6,50€</span></li>
-			<li><span>Pan relleno · Baguette, mozzarella, jamón, pimiento</span><span class="menu-price">5,50€</span></li>
+			<li><span>Pan con tomate · Pan rústico, tomate rallado, AOVE</span><span class="allergen-info"><span class="allergen-badge allergen-gluten" title="Gluten">C</span></span><span class="menu-price">4,50€</span></li>
+			<li><span>Pan con jamón · Pan rústico, tomate, jamón ibérico</span><span class="allergen-info"><span class="allergen-badge allergen-gluten" title="Gluten">C</span><span class="allergen-badge allergen-crustaceans" title="Crustáceos">K</span></span><span class="menu-price">6,50€</span></li>
+			<li><span>Pan relleno · Baguette, mozzarella, jamón, pimiento</span><span class="allergen-info"><span class="allergen-badge allergen-gluten" title="Gluten">C</span><span class="allergen-badge allergen-milk" title="Lácteos">L</span></span><span class="menu-price">5,50€</span></li>
 		</ul>
 	</section>
 	<!-- /wp:group -->
@@ -94,11 +117,11 @@
 		<!-- /wp:separator -->
 		
 		<ul class="menu-item-list">
-			<li><span>Ensalada Cotufas · Lechuga, tomate, queso, bacon crujiente</span><span class="menu-price">7,50€</span></li>
-			<li><span>Alitas BBQ · 8 unidades, salsa barbacoa casera</span><span class="menu-price">8,50€</span></li>
-			<li><span>Papas bravas · Papas caseras, salsa brava, alioli</span><span class="menu-price">5,50€</span></li>
-			<li><span>Nachos suprema · Totopos, queso fundido, jalapeños, guacamole</span><span class="menu-price">7,00€</span></li>
-			<li><span>Palitos de mozzarella · Con salsa marinara</span><span class="menu-price">6,50€</span></li>
+			<li><span>Ensalada Cotufas · Lechuga, tomate, queso, bacon crujiente</span><span class="allergen-info"><span class="allergen-badge allergen-milk" title="Lácteos">L</span><span class="allergen-badge allergen-crustaceans" title="Crustáceos">K</span><span class="allergen-badge allergen-gluten" title="Gluten">C</span></span><span class="menu-price">7,50€</span></li>
+			<li><span>Alitas BBQ · 8 unidades, salsa barbacoa casera</span><span class="allergen-info"></span><span class="menu-price">8,50€</span></li>
+			<li><span>Papas bravas · Papas caseras, salsa brava, alioli</span><span class="allergen-info"></span><span class="menu-price">5,50€</span></li>
+			<li><span>Nachos suprema · Totopos, queso fundido, jalapeños, guacamole</span><span class="allergen-info"><span class="allergen-badge allergen-milk" title="Lácteos">L</span><span class="allergen-badge allergen-sulphur" title="Sulfitos">U</span><span class="allergen-badge allergen-celery" title="Apio">P</span></span><span class="menu-price">7,00€</span></li>
+			<li><span>Palitos de mozzarella · Con salsa marinara</span><span class="allergen-info"><span class="allergen-badge allergen-milk" title="Lácteos">L</span></span><span class="menu-price">6,50€</span></li>
 		</ul>
 	</section>
 	<!-- /wp:group -->
@@ -114,23 +137,14 @@
 		<!-- /wp:separator -->
 		
 		<ul class="menu-item-list">
-			<li><span>Agua mineral</span><span class="menu-price">1,50€</span></li>
-			<li><span>Coca-Cola / Zero / Sprite</span><span class="menu-price">2,50€</span></li>
-			<li><span>Cerveza artesanal</span><span class="menu-price">3,50€</span></li>
-			<li><span>Cerveza caña</span><span class="menu-price">2,00€</span></li>
-			<li><span>Vino tinto (copa)</span><span class="menu-price">3,00€</span></li>
-			<li><span>Vino blanco (copa)</span><span class="menu-price">3,00€</span></li>
-			<li><span>Sin酒精 · Horchata, refresco casero</span><span class="menu-price">2,50€</span></li>
+			<li><span>Agua mineral</span><span class="allergen-info"></span><span class="menu-price">1,50€</span></li>
+			<li><span>Coca-Cola / Zero / Sprite</span><span class="allergen-info"><span class="allergen-badge allergen-sulphur" title="Sulfitos">U</span></span><span class="menu-price">2,50€</span></li>
+			<li><span>Cerveza artesanal</span><span class="allergen-info"><span class="allergen-badge allergen-gluten" title="Gluten">C</span><span class="allergen-badge allergen-sulphur" title="Sulfitos">U</span></span><span class="menu-price">3,50€</span></li>
+			<li><span>Cerveza caña</span><span class="allergen-info"><span class="allergen-badge allergen-gluten" title="Gluten">C</span></span><span class="menu-price">2,00€</span></li>
+			<li><span>Vino tinto (copa)</span><span class="allergen-info"><span class="allergen-badge allergen-sulphur" title="Sulfitos">U</span></span><span class="menu-price">3,00€</span></li>
+			<li><span>Vino blanco (copa)</span><span class="allergen-info"><span class="allergen-badge allergen-sulphur" title="Sulfitos">U</span></span><span class="menu-price">3,00€</span></li>
+			<li><span>Sin alcohol · Horchata, refresco casero</span><span class="allergen-info"><span class="allergen-badge allergen-sulphur" title="Sulfitos">U</span></span><span class="menu-price">2,50€</span></li>
 		</ul>
-	</section>
-	<!-- /wp:group -->
-
-	<!-- INFO -->
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"48px","right":"24px","bottom":"48px","left":"24px"}}},"layout":{"type":"constrained"}} -->
-	<section class="wp-block-group alignfull" style="padding-top:48px;padding-right:24px;padding-bottom:48px;padding-left:24px">
-		<!-- wp:paragraph {"align":"center","style":{"typography":{"color":{"text":"#8a857c"},"fontSize":"0.9rem"},"typography":{"fontFamily":"var(--wp--preset--font-family--body)"}}} -->
-		<p class="has-text-align-center" style="color:#8a857c;font-size:0.9rem;font-family:Inter,sans-serif">Todos nuestros productos se elaboran con masa madre de fermentación lenta. Consulta alérgenos con nuestro personal. Precios con IVA incluido.</p>
-		<!-- /wp:paragraph -->
 	</section>
 	<!-- /wp:group -->
 

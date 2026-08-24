@@ -3,7 +3,7 @@ Theme Name: Cotufas2
 Theme URI: http://178.104.253.211/cotufas2
 Author: Hermes Agent
 Template: twentytwentyfive
-Version: 2.0.0
+Version: 3.0.0
 License: GPL v2 or later
 Text Domain: cotufas2
 */
@@ -41,7 +41,6 @@ a:hover {
     z-index: 100;
 }
 
-/* Logo styling */
 .wp-block-site-logo img {
     border-radius: 8px;
     transition: transform 0.3s ease, opacity 0.3s ease;
@@ -252,6 +251,107 @@ a:hover {
 }
 
 /* ======================================================
+   ALLERGEN LEGEND
+   ====================================================== */
+.allergen-legend-section {
+    text-align: center;
+}
+
+.allergen-legend-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #F5A623;
+    margin-bottom: 16px;
+}
+
+.allergen-legend-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 16px;
+    margin-bottom: 12px;
+}
+
+.allergen-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: #C4BFB6;
+    transition: color 0.2s ease;
+}
+
+.allergen-legend-item:hover {
+    color: #F5F0E8;
+}
+
+.allergen-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 0.7rem;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.allergen-gluten { background-color: #E8A035; }
+.allergen-crustaceans { background-color: #E8543A; }
+.allergen-milk { background-color: #E8E854; }
+.allergen-egg { background-color: #F0D090; }
+.allergen-soy { background-color: #90C850; }
+.allergen-peanuts { background-color: #A06830; }
+.allergen-tree { background-color: #C87820; }
+.allergen-celery { background-color: #50A840; }
+.allergen-mustard { background-color: #D8C040; }
+.allergen-sesame { background-color: #C8B890; }
+.allergen-sulphur { background-color: #C85858; }
+.allergen-lupin { background-color: #905080; }
+.allergen-molluscs { background-color: #A070B0; }
+
+.allergen-disclaimer {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    color: #8a857c;
+    margin-top: 8px;
+}
+
+/* ======================================================
+   ALLERGEN BADGES (menu items)
+   ====================================================== */
+.allergen-info {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 8px;
+    flex-shrink: 0;
+}
+
+.allergen-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 0.6rem;
+    color: #1A1A1A;
+    cursor: default;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.allergen-badge:hover {
+    transform: scale(1.25);
+    box-shadow: 0 0 8px rgba(255,255,255,0.3);
+}
+
+/* ======================================================
    FOOTER
    ====================================================== */
 .site-footer a {
@@ -285,12 +385,10 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', Georgia, serif !important;
 }
 
-/* Smooth scroll */
 html {
     scroll-behavior: smooth;
 }
 
-/* Selection color */
 ::selection {
     background: #D4451A;
     color: #F5F0E8;
@@ -324,5 +422,22 @@ html {
     
     .menu-item-list li:hover {
         padding-left: 28px;
+    }
+
+    /* Allergen responsive */
+    .allergen-legend-item {
+        font-size: 0.75rem;
+    }
+
+    .allergen-circle {
+        width: 20px;
+        height: 20px;
+        font-size: 0.6rem;
+    }
+
+    .allergen-badge {
+        width: 18px;
+        height: 18px;
+        font-size: 0.55rem;
     }
 }
