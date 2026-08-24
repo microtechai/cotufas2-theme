@@ -145,4 +145,49 @@ function cotufas2_preload_resources() {
 }
 add_action('wp_head', 'cotufas2_preload_resources', 4);
 
+/* ======================================================
+   HEADER: Scroll shrink + opening status
+   ====================================================== */
+function cotufas2_header_scripts() {
+    ?>
+    <script>
+    (function() {
+        'use strict';
+        var header = document.querySelector('.site-header.is-sticky');
+        if (!header) return;
+
+        /* --- Scroll shrink --- */
+        var scrolled = false;
+        function onScroll() {
+            var didScroll = window.scrollY > 60;
+            if (didScroll !== scrolled) {
+                scrolled = didScroll;
+                header.classList.toggle('is-scrolled', scrolled);
+            }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        /* --- Opening status --- */
+        var el = document.querySelector('.opening-status');
+        if (el) {
+            var openTime = 12, closeTime = 23.5; // 23:30
+            var now = new Date();
+            var hours = now.getHours() + now.getMinutes() / 60;
+            // Handle overnight closure (open 12:00, close next day 23:30)
+            var isOpen = hours >= openTime && hours < closeTime;
+            el.classList.add(isOpen ? 'is-open' : 'is-closed');
+            el.setAttribute('aria-label', isOpen ? 'Abierto ahora' : 'Cerrado');
+            if (isOpen) {
+                el.textContent = 'Abierto ahora';
+            } else {
+                el.textContent = 'Cerrado';
+            }
+        }
+    })();
+    </script>
+    <?php
+}
+add_action('wp_footer', 'cotufas2_header_scripts', 100);
+
 ?>
