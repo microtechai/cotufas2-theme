@@ -461,26 +461,42 @@ a:hover {
 }
 
 /* ======================================================
+/* ======================================================
    MOBILE MENU — Premium full-screen overlay
-   Inspirado en: negomi/react-burger-menu, vishakha2609/responsive-navigation-bar
-   Patrones: staggered fade-up, glassmorphism close button, gold accents, decorative top bar
+   FIX: Higher specificity to override TT5 [hidden] attribute + inline styles
    ====================================================== */
 
-/* Overlay con gradiente sutil */
-.wp-block-navigation__responsive-container-overlay {
-    background: linear-gradient(135deg, rgba(10,10,10,0.97) 0%, rgba(26,26,26,0.95) 100%) !important;
+/* --- Override WordPress [hidden] on responsive container --- */
+/* Prevents the hidden attribute from blocking display */
+body .wp-block-navigation .wp-block-navigation__responsive-container[hidden] {
+    display: none !important;
 }
 
-/* Contenedor: pantalla completa centrado */
-.wp-block-navigation__responsive-container {
+/* When opened: forced display regardless of hidden attribute */
+body .wp-block-navigation .wp-block-navigation__responsive-container.is-menu-open,
+body .wp-block-navigation .wp-block-navigation__responsive-container:not([hidden]) {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Overlay backdrop */
+body .wp-block-navigation .wp-block-navigation__responsive-container-overlay {
+    background: linear-gradient(135deg, rgba(10,10,10,0.97) 0%, rgba(26,26,26,0.95) 100%) !important;
+    display: block !important;
+}
+
+/* Container: full-screen, fixed, high z-index */
+body .wp-block-navigation .wp-block-navigation__responsive-container {
     z-index: 10000 !important;
 }
 
-.wp-block-navigation__responsive-container.is-menu-open {
+/* Open state: forced full-screen layout */
+body .wp-block-navigation .wp-block-navigation__responsive-container.is-menu-open {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
-    width: 100vw !important;
+    width: 100% !important;
     height: 100vh !important;
     max-height: 100vh !important;
     background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(245,166,35,0.03) 0%, transparent 70%),
@@ -494,8 +510,8 @@ a:hover {
     overflow-y: auto !important;
 }
 
-/* Barra decorativa dorada en la parte superior */
-.wp-block-navigation__responsive-container.is-menu-open::before {
+/* Decorative gold bar at top */
+body .wp-block-navigation .wp-block-navigation__responsive-container.is-menu-open::before {
     content: '';
     position: absolute;
     top: 0;
@@ -508,20 +524,17 @@ a:hover {
     opacity: 0.6;
 }
 
-/* Hamburger icon — glassmorphic circular button */
-.wp-block-navigation__responsive-container-open {
-    display: none !important;
-}
-
-/* Close button — elegante con anillo dorado */
-.wp-block-navigation__responsive-container-close {
+/* Close button wrapper — visible */
+body .wp-block-navigation .wp-block-navigation__responsive-container-close {
     position: fixed !important;
     top: 16px !important;
     right: 16px !important;
     z-index: 10001 !important;
+    display: block !important;
 }
 
-.wp-block-navigation__responsive-container-close button {
+/* Close button styling */
+body .wp-block-navigation .wp-block-navigation__responsive-container-close button {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -539,133 +552,50 @@ a:hover {
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3) !important;
 }
 
-.wp-block-navigation__responsive-container-close button:hover {
+body .wp-block-navigation .wp-block-navigation__responsive-container-close button:hover {
     background: rgba(245, 166, 35, 0.12) !important;
     border-color: #F5A623 !important;
     box-shadow: 0 0 16px rgba(245, 166, 35, 0.2) !important;
     transform: rotate(90deg);
 }
 
-.wp-block-navigation__responsive-container-close button svg {
+body .wp-block-navigation .wp-block-navigation__responsive-container-close button svg {
     width: 20px !important;
     height: 20px !important;
     stroke-width: 2.5 !important;
 }
 
-/* Menu items — tipografía elegante, espaciado generoso */
-.wp-block-navigation__responsive-container-content {
-    width: 100% !important;
-    max-width: 380px !important;
-    padding: 0 !important;
-    margin: 0 auto !important;
-}
-
-.wp-block-navigation__responsive-container-content ul {
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    text-align: center !important;
-}
-
-.wp-block-navigation-item {
-    opacity: 0;
-    transform: translateY(40px);
-}
-
-.wp-block-navigation-item.animating {
-    animation: fadeUpItem 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
-    animation-delay: calc(var(--stagger, 0) * 80ms);
-}
-
-@keyframes fadeUpItem {
-    0%   { opacity: 0; transform: translateY(40px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-.wp-block-navigation-item__content {
-    display: block !important;
-    padding: 20px 16px !important;
-    font-size: 1.4rem !important;
-    font-weight: 500 !important;
-    color: #F5F0E8 !important;
-    text-align: center !important;
-    text-decoration: none !important;
-    font-family: 'Playfair Display', Georgia, serif !important;
-    letter-spacing: 0.04em !important;
-    line-height: 1.4 !important;
-    border-radius: 8px !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    -webkit-tap-highlight-color: transparent !important;
-}
-
-.wp-block-navigation-item__content:hover,
-.wp-block-navigation-item__content:focus {
-    color: #F5A623 !important;
-    background: rgba(245, 166, 35, 0.07) !important;
-    text-shadow: 0 0 30px rgba(245, 166, 35, 0.15) !important;
-}
-
-.wp-block-navigation-item__content:active {
-    background: rgba(245, 166, 35, 0.14) !important;
-    transform: scale(0.98) !important;
-}
-
-/* Divisor dorado sutil entre items */
-.wp-block-navigation-item:not(:last-child) {
-    border-bottom: 1px solid rgba(245, 166, 35, 0.1) !important;
-}
-
-/* Sub-menus en mobile: despliegue normal */
-.wp-block-navigation-submenu {
-    width: 100% !important;
-}
-
-.wp-block-navigation__submenu-icon {
-    display: none !important;
-}
-
-/* Responsive */
-@media (max-width: 380px) {
-    .wp-block-navigation-item__content {
-        font-size: 1.25rem !important;
-        padding: 16px 12px !important;
-    }
-}
-
-.wp-block-navigation__responsive-container-close button {
-    background: transparent !important;
-    border: none !important;
-    color: #F5F0E8 !important;
-    padding: 12px !important;
-    cursor: pointer;
-}
-
-/* Contenido: lista de items centrada */
-.wp-block-navigation__responsive-container-content {
+/* Responsive content area */
+body .wp-block-navigation .wp-block-navigation__responsive-container-content {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     width: 100% !important;
-    max-width: 400px !important;
+    max-width: none !important;
     gap: 0 !important;
     padding: 0 !important;
     margin: 0 auto !important;
 }
 
-/* Items del menú: grandes, espaciados, centrados */
-.wp-block-navigation__responsive-container-content ul {
+/* Menu items container */
+body .wp-block-navigation .wp-block-navigation__responsive-container-content ul {
     list-style: none !important;
     padding: 0 !important;
     margin: 0 !important;
+    text-align: center !important;
     width: 100% !important;
 }
 
-.wp-block-navigation-item {
+/* Menu items: force visible (remove default opacity:0) */
+body .wp-block-navigation .wp-block-navigation-item {
     width: 100% !important;
     margin-bottom: 4px !important;
+    opacity: 1 !important;
+    transform: none !important;
 }
 
-.wp-block-navigation-item__content {
+/* Menu item links */
+body .wp-block-navigation .wp-block-navigation-item__content {
     display: block !important;
     padding: 18px 24px !important;
     font-size: 1.5rem !important;
@@ -680,32 +610,42 @@ a:hover {
     -webkit-tap-highlight-color: transparent !important;
 }
 
-.wp-block-navigation-item__content:active {
+body .wp-block-navigation .wp-block-navigation-item__content:active {
     background: rgba(245, 166, 35, 0.12) !important;
     transform: scale(0.98) !important;
 }
 
-.wp-block-navigation-item__content:hover,
-.wp-block-navigation-item__content:focus {
+body .wp-block-navigation .wp-block-navigation-item__content:hover,
+body .wp-block-navigation .wp-block-navigation-item__content:focus {
     color: #F5A623 !important;
     background: rgba(245, 166, 35, 0.08) !important;
 }
 
-/* Separador sutil entre items */
-.wp-block-navigation-item:not(:last-child) {
+/* Separator between items */
+body .wp-block-navigation .wp-block-navigation-item:not(:last-child) {
     border-bottom: 1px solid rgba(245, 240, 232, 0.06) !important;
 }
 
-/* Sub-menus: despliegan normal */
-.wp-block-navigation-submenu {
+/* Submenus: show normally */
+body .wp-block-navigation .wp-block-navigation-submenu {
     width: 100% !important;
 }
 
-.wp-block-navigation__submenu-icon {
+/* Hide TT5 dropdown arrow icons */
+body .wp-block-navigation .wp-block-navigation__submenu-icon {
     display: none !important;
 }
 
-/* ======================================================
+/* Small phones */
+@media (max-width: 380px) {
+    body .wp-block-navigation .wp-block-navigation-item__content {
+        font-size: 1.25rem !important;
+        padding: 16px 12px !important;
+    }
+}
+
+
+
    GENERAL UTILITY
    ====================================================== */
 h1, h2, h3, h4, h5, h6 {
